@@ -36,7 +36,7 @@ def report(stats, key):
 	stats.sort(key=lambda x: x[key])
 	print ("bottom 10 for: ", key)
 	for i in stats[0:7]:
-		print("Name:", i[name], str(key),":", i[key])
+		print("Name:", i[name], str(key),":", i[key], "\n")
 		if key == "yardsTotal":
 			low_total_yards.append(i)
 		if key == "yardsThrown":
@@ -49,7 +49,7 @@ def report(stats, key):
 
 	print("top 5 for :", key)
 	for i in stats[-5:]:
-		print("Name:", i[name], str(key),":", i[key])
+		print("Name:", i[name], str(key),":", i[key], "\n")
 		if key == "yardsTotal":
 			top_total_yards.append(i)
 		if key == "yardsThrown":
@@ -72,15 +72,15 @@ stats.sort(key=lambda x: x["completionPercentage"])
 print("completionPercentage > 96%")
 for i in stats:
 	if i["completionPercentage"] > "95.99":
-		print("Name:", i[name], "completionPercentage:", i["completionPercentage"])
+		print("Name:", i[name], "completionPercentage:", i["completionPercentage"], "\n")
 
 print("completionPercentage < 95%")
 for i in stats:
 	if i["completionPercentage"] < "95.00":
-		print("Name:", i[name], "completionPercentage:", i["completionPercentage"])
+		print("Name:", i[name], "completionPercentage:", i["completionPercentage"], "\n")
 
 
 print("make them beat us")
 for i in stats:
 	if i in high_recv and i in low_throwing:
-		print("Name:", i[name])
+		print("Name:", i[name], "\n")
