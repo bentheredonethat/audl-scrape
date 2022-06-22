@@ -31,6 +31,15 @@ high_throwing = []
 for i in stats:
 	if "Selfridge" in i[name]:
 		stats.remove(i)
+metrics = [ "yardsTotal", "yardsThrown", "yardsReceived", "completionPercentage" ]
+
+# now update for this per game
+gamesPlayed="gamesPlayed"
+
+for m in metrics:
+	for player in stats:
+		games_adjusted_value = float(player[m]) / float(player[gamesPlayed])
+		player[m] = games_adjusted_value
 
 def report(stats, key):
 	stats.sort(key=lambda x: x[key])
@@ -61,7 +70,6 @@ def report(stats, key):
 
 
 
-metrics = [ "yardsTotal", "yardsThrown", "yardsReceived", "completionPercentage" ]
 
 for i in metrics:
 	report(stats, i)
@@ -71,12 +79,12 @@ for i in metrics:
 stats.sort(key=lambda x: x["completionPercentage"])
 print("completionPercentage > 96%")
 for i in stats:
-	if i["completionPercentage"] > "95.99":
+	if i["completionPercentage"] > 95.99:
 		print("Name:", i[name], "completionPercentage:", i["completionPercentage"], "\n")
 
 print("completionPercentage < 95%")
 for i in stats:
-	if i["completionPercentage"] < "95.00":
+	if i["completionPercentage"] < 95.00:
 		print("Name:", i[name], "completionPercentage:", i["completionPercentage"], "\n")
 
 
