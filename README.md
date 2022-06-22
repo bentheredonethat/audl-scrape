@@ -12,6 +12,9 @@ spiders
 
 
 bash-3.2$ python3 scrape.py 
+
+
+
 bottom 10 for:  yardsTotal
 
 
